@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajesh Vallepu - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(to right, #ffe9e3, #e0f7fa);
+      color: #222;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #232f3e;
+      padding: 12px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      background-color: #ffcc80;
+      color: #232f3e;
+    }
+
+    .home-content {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #ffebee, #e3f2fd);
+      border-bottom: 5px solid #ff9800;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #ff9800;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 3rem;
+      color: #37474f;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 40px auto;
+      background-color: #fff8f0;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #ff5722;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    /* Skills Section */
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skills-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #333;
+      background: #ffebee;
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+
+    .skills-list li i {
+      color: #ff5722;
+    }
+
+    /* Other Sections */
+    ul:not(.skills-list) {
+      list-style-type: circle;
+      padding-left: 40px;
+      font-size: 1.15rem;
+      color: #333;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .project {
+      width: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+      background: linear-gradient(135deg, #6b48ff, #00ddeb);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+    }
+
+    .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
+      display: block;
+    }
+
+    .project-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 15px;
+      margin: 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 0 0 15px 15px;
+    }
+
+    #project-info p {
+      margin-top: 25px;
+      font-size: 1rem;
+      background-color: #fffde7;
+      padding: 20px;
+      border-left: 6px solid #ff9800;
+      border-radius: 8px;
+    }
+
+    /* Resume Section - Updated */
+    .resume-container {
+      text-align: center;
+    }
+
+    .resume-preview {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      border: 3px solid #ff9800;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .resume-preview:hover {
+      transform: scale(1.05);
+    }
+
+    .resume-description {
+      margin: 20px 0;
+      font-size: 1.1rem;
+      color: #333;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+      background-color: #e64a19;
+    }
+
+    a {
+      color: #ff5722;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .projects-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .project {
+        width: 90%;
+      }
+
+      .resume-preview {
+        max-width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#resume">Resume</a></li>
+         <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div class="home-content">
+      <img src="profile.jpg" alt="Rajesh Profile Picture" class="profile-pic">
+      <h1>Hi, I'm Rajesh Vallepu</h1>
+      <p>I’m currently pursuing my B.Tech in Artificial Intelligence and Data Science at LBRCE with a CGPA of 8.7. I have a solid foundation in Java, Python, SQL, and modern web technologies such as HTML, CSS, and JavaScript. I’ve also worked on impactful machine learning and deep learning projects including sound pollution prediction and Monkeypox detection. My internship experiences at NIT Warangal and Bharat Intern helped me lead teams and build full-stack applications and dashboards. I am passionate about solving real-world problems with technology, and I love both individual and team work. Let’s build the future together!</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li><i class="fab fa-java"></i> Java</li>
+      <li><i class="fas fa-database"></i> SQL</li>
+      <li><i class="fab fa-python"></i> Python</li>
+      <li><i class="fab fa-html5"></i> HTML</li>
+      <li><i class="fab fa-js"></i> JavaScript</li>
+      <li><i class="fab fa-css3-alt"></i> CSS</li>
+      <li><i class="fas fa-brain"></i> Machine Learning</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project">
+        <img src="sound.jpg" alt="Sound Pollution Project" onclick="showInfo('sound')">
+        <p class="project-title">Urban Sound Pollution Prediction</p>
+      </div>
+      <div class="project">
+        <img src="ecommerce.jpg" alt="Java E-Commerce" onclick="showInfo('ecommerce')">
+        <p class="project-title">Java E-Commerce Website</p>
+      </div>
+      <div class="project">
+        <img src="monkeypox.jpg" alt="Monkeypox Prediction" onclick="showInfo('monkeypox')">
+        <p class="project-title">Monkeypox Prediction Using Deep Learning</p>
+      </div>
+    </div>
+    <div id="project-info"></div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li>JAVA FULL STACK - WIPRO TALENT NEXT, 2024</li>
+      <li>MACHINE LEARNING FOUNDATION - Infosys, 2023</li>
+      <li>MASTER CLASS ON AI 3.0 - APSSDC, 2022</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Phone: 6305471128</p>
+    <p>Email: rajeshvallepu7@gmail.com</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/rajeshvallepu21" target="_blank">rajeshvallepu21</a></p>
+  </section>
+
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="resume-container">
+      <a href="Rajesh_LBRCE.pdf" download>
+        <img src="resume.jpg" alt="Resume Preview" class="resume-preview">
+      </a>
+      <p class="resume-description">
+        A detailed overview of my academic journey, technical skills, projects, and internship experiences. Download the full resume to learn more about my qualifications and achievements.
+      </p>
+      <a href="Rajesh_LBRCE.pdf" download class="download-btn">Download Resume</a>
+    </div>
+  </section>
+
+  <script>
+    function showInfo(project) {
+      const info = {
+        sound: `Developed machine learning models to predict urban sound pollution using diverse datasets including sensor data, traffic flow, and weather conditions. 
+      Employed data preprocessing, feature engineering, and algorithms such as Random Forest and Gradient Boosting. 
+      Published research in Grenz Journal. Created interactive dashboards for data visualization and insights.
+      Technologies: Python, scikit-learn, Pandas,Iot.`,
+        ecommerce: `Designed and implemented a full-stack e-commerce website with a Java backend and Oracle database integration.
+      Features include user authentication, product catalog, shopping cart, order processing, and admin panel for inventory management.
+      Focused on clean architecture and MVC design patterns to ensure maintainability and scalability.
+      Technologies: Java, JSP/Servlets, Oracle DB, HTML, CSS, JavaScript.`,
+        monkeypox: `Developed a deep learning model for Monkeypox prediction by combining AlexNet and DenseNet architectures.
+      Utilized transfer learning on a curated image dataset to enhance classification accuracy.
+      Applied advanced techniques such as data augmentation and fine-tuning to improve model robustness.
+      Achieved high accuracy in detecting Monkeypox lesions from images, aiding early diagnosis.
+      Technologies: Python, TensorFlow/Keras, OpenCV, deep learning.`
+      };
+      document.getElementById('project-info').innerHTML = `<p>${info[project]}</p>`;
+    }
+  </script>
+</body>
+</html>
